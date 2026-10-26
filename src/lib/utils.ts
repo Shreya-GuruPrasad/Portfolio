@@ -12,3 +12,8 @@ export function isTodo(value: string | undefined): boolean {
 export function isExternal(href: string): boolean {
   return /^https?:\/\//.test(href)
 }
+
+/** Path to a project's detail page, relative to the router basename. */
+export function projectPath(slug: string): string {
+  return `/projects/${slug}`
+}

@@ -146,3 +146,9 @@
     transform: none;
   }
 }
+
+@keyframes status-pulse {
+  50% {
+    opacity: 0.35;
+  }
+}

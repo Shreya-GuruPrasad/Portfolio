@@ -17,7 +17,8 @@ export function Hero() {
           <p className="text-soft">{hero.greeting}</p>
           <h1
             id="hero-title"
-            className="mt-[18px] font-serif text-hero font-light tracking-[-0.025em]"
+            tabIndex={-1}
+            className="mt-[18px] font-serif text-hero font-light tracking-[-0.025em] focus:outline-none"
           >
             {hero.headline.lead} <em className="text-accent">{hero.headline.emphasis}</em>
           </h1>

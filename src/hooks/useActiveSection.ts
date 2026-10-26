@@ -6,6 +6,8 @@ import { useEffect, useState } from 'react'
  */
 export function useActiveSection(
   ids: readonly string[],
+  /** Change this (e.g. to the pathname) to re-scan for sections after a page change. */
+  watchKey?: string,
   rootMargin = '-45% 0px -50% 0px',
 ): string | null {
   const [active, setActive] = useState<string | null>(null)
@@ -27,7 +29,7 @@ export function useActiveSection(
     )
     elements.forEach((el) => observer.observe(el))
     return () => observer.disconnect()
-  }, [ids, rootMargin])
+  }, [ids, rootMargin, watchKey])
 
   return active
 }

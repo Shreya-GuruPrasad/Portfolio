@@ -1,6 +1,7 @@
-import { render, screen, within } from '@testing-library/react'
+import { screen, within } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
 import { projects } from '@/data/projects'
+import { renderWithRouter } from '@/test/render'
 import { ProjectsSection } from './ProjectsSection'
 
 const titles = () =>
@@ -13,7 +14,7 @@ const titlesFor = (category: string) =>
 
 describe('ProjectsSection', () => {
   it('shows every project by default', () => {
-    render(<ProjectsSection />)
+    renderWithRouter(<ProjectsSection />)
     expect(titles()).toHaveLength(projects.length)
     expect(screen.getByRole('button', { name: 'All' })).toHaveAttribute('aria-pressed', 'true')
   })
@@ -24,27 +25,27 @@ describe('ProjectsSection', () => {
     ['Research', 'research'],
   ])('filters to %s projects and announces the count', async (label, category) => {
     const user = userEvent.setup()
-    render(<ProjectsSection />)
+    renderWithRouter(<ProjectsSection />)
     await user.click(screen.getByRole('button', { name: label }))
 
     expect(titles().sort()).toEqual(titlesFor(category).sort())
     expect(screen.getByRole('button', { name: label })).toHaveAttribute('aria-pressed', 'true')
     expect(screen.getByRole('button', { name: 'All' })).toHaveAttribute('aria-pressed', 'false')
-    expect(screen.getByRole('status')).toHaveTextContent(
+    expect(screen.getByText(/^Showing/)).toHaveTextContent(
       new RegExp(`Showing ${titlesFor(category).length} ${label}`),
     )
   })
 
   it('returns to all projects', async () => {
     const user = userEvent.setup()
-    render(<ProjectsSection />)
+    renderWithRouter(<ProjectsSection />)
     await user.click(screen.getByRole('button', { name: 'Research' }))
     await user.click(screen.getByRole('button', { name: 'All' }))
     expect(titles()).toHaveLength(projects.length)
   })
 
   it('links every project to its detail page', () => {
-    render(<ProjectsSection />)
+    renderWithRouter(<ProjectsSection />)
     for (const project of projects) {
       const link = screen.getByRole('link', { name: new RegExp(project.title) })
       expect(link.getAttribute('href')).toMatch(new RegExp(`projects/${project.slug}$`))

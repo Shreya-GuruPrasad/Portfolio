@@ -4,16 +4,12 @@ import { useCopyEmail } from '@/hooks/useCopyEmail'
 import { isExternal } from '@/lib/utils'
 import { NewTabHint } from '@/components/ui/NewTabHint'
 import { Container } from './Container'
+import { SectionLink } from './SectionLink'
 
 const headingClass = 'mb-3 text-[0.76rem] font-medium tracking-[0.14em] text-soft uppercase'
 const linkClass = 'cursor-pointer text-ink no-underline transition-colors hover:text-accent'
 
-interface FooterProps {
-  /** Builds the href for a home page section. */
-  sectionHref?: (id: string) => string
-}
-
-export function Footer({ sectionHref = (id) => `#${id}` }: FooterProps) {
+export function Footer() {
   const copyEmail = useCopyEmail()
 
   return (
@@ -32,9 +28,9 @@ export function Footer({ sectionHref = (id) => `#${id}` }: FooterProps) {
             <ul className="grid gap-2 text-[0.92rem]">
               {footerNav.map((item) => (
                 <li key={item.id}>
-                  <a href={sectionHref(item.id)} className={linkClass}>
+                  <SectionLink sectionId={item.id} className={linkClass}>
                     {item.label}
-                  </a>
+                  </SectionLink>
                 </li>
               ))}
             </ul>

@@ -1,5 +1,6 @@
 import { useCallback, useEffect, useRef, useState } from 'react'
-import { Button } from '@/components/ui/Button'
+import { useLocation } from 'react-router'
+import { buttonClasses } from '@/components/ui/buttonStyles'
 import { observedSections, sectionNav } from '@/data/navigation'
 import { profile } from '@/data/profile'
 import { useActiveSection } from '@/hooks/useActiveSection'
@@ -7,17 +8,19 @@ import { useScrolled } from '@/hooks/useScrolled'
 import { cn } from '@/lib/utils'
 import { Container } from './Container'
 import { MobileDrawer } from './MobileDrawer'
+import { SectionLink } from './SectionLink'
 
 const MENU_ID = 'mobile-menu'
 const DESKTOP_QUERY = '(min-width: 55rem)'
-
-const sectionHref = (id: string) => `#${id}`
 
 export function Header() {
   const [menuOpen, setMenuOpen] = useState(false)
   const menuButtonRef = useRef<HTMLButtonElement>(null)
   const scrolled = useScrolled(8)
-  const activeId = useActiveSection(observedSections)
+  const { pathname } = useLocation()
+  const observedId = useActiveSection(observedSections, pathname)
+  // Section highlighting only makes sense on the home page.
+  const activeId = pathname === '/' ? observedId : null
   const closeMenu = useCallback(() => setMenuOpen(false), [])
 
   // The drawer only exists on small screens; close it if the window grows past the breakpoint.
@@ -54,9 +57,11 @@ export function Header() {
             </svg>
           </button>
 
-          <a
-            href={sectionHref('top')}
-            aria-label={`${profile.name}, back to top`}
+          <SectionLink
+            sectionId="top"
+            aria-label={
+              pathname === '/' ? `${profile.name}, back to top` : `${profile.name}, home page`
+            }
             className="flex items-center gap-3 no-underline"
           >
             <span
@@ -66,27 +71,27 @@ export function Header() {
               {profile.name.charAt(0)}
             </span>
             <span className="font-serif text-[1.15rem] whitespace-nowrap">{profile.name}</span>
-          </a>
+          </SectionLink>
 
           <nav aria-label="Main" className="ml-auto hidden gap-1 nav:flex">
             {sectionNav.map((item) => (
-              <a
+              <SectionLink
                 key={item.id}
-                href={sectionHref(item.id)}
+                sectionId={item.id}
                 className={cn(
                   'rounded-pill px-3 py-2 text-[0.9rem] no-underline transition-colors duration-200 hover:text-ink',
                   activeId === item.id ? 'bg-raise2 text-ink' : 'text-soft',
                 )}
               >
                 {item.label}
-              </a>
+              </SectionLink>
             ))}
           </nav>
 
           <div className="hidden nav:block">
-            <Button href={sectionHref('contact')} size="sm">
+            <SectionLink sectionId="contact" className={buttonClasses('primary', 'sm')}>
               Get in touch
-            </Button>
+            </SectionLink>
           </div>
         </Container>
       </header>
@@ -97,7 +102,6 @@ export function Header() {
         onClose={closeMenu}
         activeId={activeId}
         returnFocusRef={menuButtonRef}
-        sectionHref={sectionHref}
       />
     </>
   )

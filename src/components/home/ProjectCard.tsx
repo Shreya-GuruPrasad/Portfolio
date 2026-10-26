@@ -1,3 +1,4 @@
+import { Link } from 'react-router'
 import { TagList } from '@/components/ui/TagList'
 import type { Project } from '@/lib/types'
 import { projectPath } from '@/lib/utils'
@@ -8,8 +9,6 @@ interface ProjectCardProps {
 }
 
 export function ProjectCard({ project }: ProjectCardProps) {
-  const href = `${import.meta.env.BASE_URL}${projectPath(project.slug).slice(1)}`
-
   return (
     <article className="flex flex-col gap-3.5 rounded-card border border-faint bg-raise p-[18px] transition duration-200 hover:border-[color-mix(in_srgb,var(--color-accent)_45%,var(--color-faint))] motion-safe:hover:-translate-y-0.5">
       <ProjectThumb image={project.image} />
@@ -22,13 +21,13 @@ export function ProjectCard({ project }: ProjectCardProps) {
       <h3 className="font-serif text-card">{project.title}</h3>
       <p className="text-[0.95rem] text-soft">{project.summary}</p>
       <TagList tags={project.tags} />
-      <a
-        href={href}
+      <Link
+        to={projectPath(project.slug)}
         className="mt-auto self-start pt-1 text-[0.9rem] text-accent no-underline underline-offset-4 hover:underline"
       >
         Read more<span className="sr-only"> about {project.title}</span>{' '}
         <span aria-hidden="true">→</span>
-      </a>
+      </Link>
     </article>
   )
 }

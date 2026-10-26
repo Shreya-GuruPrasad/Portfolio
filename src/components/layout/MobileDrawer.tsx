@@ -6,6 +6,7 @@ import { useCopyEmail } from '@/hooks/useCopyEmail'
 import { useFocusTrap } from '@/hooks/useFocusTrap'
 import { useScrollLock } from '@/hooks/useScrollLock'
 import { cn } from '@/lib/utils'
+import { SectionLink } from './SectionLink'
 
 interface MobileDrawerProps {
   id: string
@@ -14,18 +15,9 @@ interface MobileDrawerProps {
   activeId: string | null
   /** The button that opened the drawer; focus returns to it on close. */
   returnFocusRef: RefObject<HTMLButtonElement | null>
-  /** Builds the href for a home page section. */
-  sectionHref: (id: string) => string
 }
 
-export function MobileDrawer({
-  id,
-  open,
-  onClose,
-  activeId,
-  returnFocusRef,
-  sectionHref,
-}: MobileDrawerProps) {
+export function MobileDrawer({ id, open, onClose, activeId, returnFocusRef }: MobileDrawerProps) {
   const panelRef = useRef<HTMLDivElement>(null)
   const closeRef = useRef<HTMLButtonElement>(null)
   const wasOpen = useRef(false)
@@ -95,9 +87,9 @@ export function MobileDrawer({
 
         <nav aria-label="Mobile" className="mt-8 grid">
           {drawerNav.map((item) => (
-            <a
+            <SectionLink
               key={item.id}
-              href={sectionHref(item.id)}
+              sectionId={item.id}
               onClick={onClose}
               className={cn(
                 'flex justify-between border-b border-faint py-[13px] text-[1.05rem] no-underline',
@@ -108,7 +100,7 @@ export function MobileDrawer({
               <span aria-hidden="true" className="text-soft">
                 →
               </span>
-            </a>
+            </SectionLink>
           ))}
         </nav>
 

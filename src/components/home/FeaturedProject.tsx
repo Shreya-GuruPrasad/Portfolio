@@ -1,4 +1,6 @@
+import { Link } from 'react-router'
 import { Button } from '@/components/ui/Button'
+import { buttonClasses } from '@/components/ui/buttonStyles'
 import { TagList } from '@/components/ui/TagList'
 import type { Project } from '@/lib/types'
 import { isTodo, projectPath } from '@/lib/utils'
@@ -9,7 +11,6 @@ interface FeaturedProjectProps {
 }
 
 export function FeaturedProject({ project }: FeaturedProjectProps) {
-  const href = `${import.meta.env.BASE_URL}${projectPath(project.slug).slice(1)}`
   const github = project.links.github
 
   return (
@@ -39,9 +40,9 @@ export function FeaturedProject({ project }: FeaturedProjectProps) {
         )}
         <TagList tags={project.tags} className="mt-4" />
         <div className="mt-[22px] flex flex-wrap gap-2.5">
-          <Button href={href}>
+          <Link to={projectPath(project.slug)} className={buttonClasses()}>
             Read case study<span className="sr-only">: {project.title}</span>
-          </Button>
+          </Link>
           {!isTodo(github) && github && (
             <Button href={github} variant="ghost">
               GitHub

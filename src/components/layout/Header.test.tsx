@@ -1,19 +1,19 @@
-import { act, render, screen, within } from '@testing-library/react'
+import { act, screen, within } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
-import { ToastProvider } from '@/components/ui/ToastProvider'
+import { renderWithRouter } from '@/test/render'
 import { MockIntersectionObserver } from '@/test/intersectionObserver'
 import { Header } from './Header'
 
 function renderHeader() {
-  return render(
-    <ToastProvider>
+  return renderWithRouter(
+    <>
       <Header />
       <main>
         <section id="top" />
         <section id="about" />
         <section id="projects" />
       </main>
-    </ToastProvider>,
+    </>,
   )
 }
 

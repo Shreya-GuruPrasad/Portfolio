@@ -1,5 +1,7 @@
 # Shreya Guru Prasad: Portfolio
 
+[![CI](https://github.com/Shreya-GuruPrasad/Portfolio/actions/workflows/ci.yml/badge.svg)](https://github.com/Shreya-GuruPrasad/Portfolio/actions/workflows/ci.yml)
+
 Personal portfolio of Shreya Guru Prasad, ISO 27001 Lead Auditor and Master of Cyber Security
 student at RMIT, Melbourne.
 
@@ -7,7 +9,7 @@ Live site: _coming soon_ (https://shreya-guruprasad.github.io/Portfolio/)
 
 ## Run locally
 
-Requires Node 20 or later.
+Requires Node 22.22 or later.
 
 ```bash
 npm install

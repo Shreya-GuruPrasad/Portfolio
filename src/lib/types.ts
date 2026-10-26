@@ -94,7 +94,7 @@ export interface Project {
   place: string
   year: string
   /** e.g. "Individual coursework". */
-  context: string
+  context?: string
   /** Only for work in progress, e.g. "In progress · target November 2026". */
   status?: string
   summary: string

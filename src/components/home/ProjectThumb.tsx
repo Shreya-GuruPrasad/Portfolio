@@ -3,11 +3,9 @@ import type { ProjectImage } from '@/lib/types'
 
 interface ProjectThumbProps {
   image: ProjectImage
-  /** Load immediately when the thumbnail is likely above the fold. */
-  eager?: boolean
 }
 
-export function ProjectThumb({ image, eager }: ProjectThumbProps) {
+export function ProjectThumb({ image }: ProjectThumbProps) {
   return (
     <div className="relative aspect-[16/10] overflow-hidden rounded-thumb border border-faint bg-raise2">
       <img
@@ -15,7 +13,7 @@ export function ProjectThumb({ image, eager }: ProjectThumbProps) {
         alt=""
         width={320}
         height={200}
-        loading={eager ? 'eager' : 'lazy'}
+        loading="lazy"
         decoding="async"
         className="block size-full"
       />

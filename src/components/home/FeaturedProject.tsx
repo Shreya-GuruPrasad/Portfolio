@@ -15,7 +15,7 @@ export function FeaturedProject({ project }: FeaturedProjectProps) {
 
   return (
     <article className="grid items-center gap-6 rounded-feature border border-faint bg-raise p-[18px] md:grid-cols-[minmax(0,1.05fr)_minmax(0,1fr)] md:gap-12 md:p-7">
-      <ProjectThumb image={project.image} eager />
+      <ProjectThumb image={project.image} />
       <div>
         {project.status && (
           <p className="flex items-center gap-[9px] text-[0.82rem] text-accent">

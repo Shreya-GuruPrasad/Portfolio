@@ -5,7 +5,9 @@
 Personal portfolio of Shreya Guru Prasad, ISO 27001 Lead Auditor and Master of Cyber Security
 student at RMIT, Melbourne.
 
-Live site: _coming soon_ (https://shreya-guruprasad.github.io/Portfolio/)
+Live site: https://shreya-guruprasad.github.io/Portfolio/
+
+Deployed to GitHub Pages by the `Deploy to GitHub Pages` workflow on every push to `main`.
 
 ## Run locally
 

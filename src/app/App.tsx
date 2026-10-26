@@ -4,6 +4,7 @@ import { SkipLink } from '@/components/layout/SkipLink'
 import { About } from '@/components/home/About'
 import { FactStrip } from '@/components/home/FactStrip'
 import { Hero } from '@/components/home/Hero'
+import { ProjectsSection } from '@/components/home/ProjectsSection'
 import { ToastProvider } from '@/components/ui/ToastProvider'
 
 export function App() {
@@ -15,6 +16,7 @@ export function App() {
         <Hero />
         <FactStrip />
         <About />
+        <ProjectsSection />
       </main>
       <Footer />
     </ToastProvider>

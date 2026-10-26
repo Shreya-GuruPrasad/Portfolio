@@ -57,13 +57,7 @@ export function Header() {
             </svg>
           </button>
 
-          <SectionLink
-            sectionId="top"
-            aria-label={
-              pathname === '/' ? `${profile.name}, back to top` : `${profile.name}, home page`
-            }
-            className="flex items-center gap-3 no-underline"
-          >
+          <SectionLink sectionId="top" className="flex items-center gap-3 no-underline">
             <span
               aria-hidden="true"
               className="grid size-9 place-items-center rounded-full border border-faint font-serif text-base text-accent italic"

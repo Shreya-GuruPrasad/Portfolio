@@ -18,7 +18,7 @@ export function FactStrip() {
               )}
             >
               <span className="block font-serif text-[1.15rem] leading-[1.3]">{fact.title}</span>
-              <span className="text-[0.86rem] text-soft">{fact.detail}</span>
+              <span className="block text-[0.86rem] leading-normal text-soft">{fact.detail}</span>
             </li>
           ))}
         </ul>

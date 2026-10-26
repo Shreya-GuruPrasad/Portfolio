@@ -83,9 +83,11 @@ export function Header() {
             ))}
           </nav>
 
-          <Button href={sectionHref('contact')} size="sm" className="hidden nav:inline-flex">
-            Get in touch
-          </Button>
+          <div className="hidden nav:block">
+            <Button href={sectionHref('contact')} size="sm">
+              Get in touch
+            </Button>
+          </div>
         </Container>
       </header>
 

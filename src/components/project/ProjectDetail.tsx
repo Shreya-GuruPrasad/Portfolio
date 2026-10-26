@@ -20,6 +20,7 @@ export default function ProjectDetail() {
   useDocumentTitle(
     project ? `${project.title} | ${profile.name}` : `Page not found | ${profile.name}`,
     project?.summary,
+    project ? `projects/${project.slug}` : undefined,
   )
 
   if (!project) return <NotFound />

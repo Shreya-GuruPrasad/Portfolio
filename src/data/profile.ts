@@ -7,6 +7,7 @@ export const profile: Profile = {
   roleLine: 'Governance, risk & compliance · Melbourne',
   location: 'Melbourne, Australia',
   email: 'shreya.guruprasad@gmail.com',
+  siteUrl: 'https://shreya-guruprasad.github.io/Portfolio/',
   linkedin: 'TODO: LinkedIn profile URL',
   github: 'TODO: GitHub profile URL (probably https://github.com/Shreya-GuruPrasad, confirm)',
   availability: 'Open to GRC internships and graduate roles in Melbourne',

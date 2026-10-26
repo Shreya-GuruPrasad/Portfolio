@@ -29,6 +29,8 @@ export interface Profile {
   roleLine: string
   location: string
   email: string
+  /** Public site URL with trailing slash. */
+  siteUrl: string
   linkedin: string
   github: string
   availability: string

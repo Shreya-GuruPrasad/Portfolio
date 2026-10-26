@@ -1,3 +1,13 @@
+import { Header } from '@/components/layout/Header'
+import { SkipLink } from '@/components/layout/SkipLink'
+import { ToastProvider } from '@/components/ui/ToastProvider'
+
 export function App() {
-  return <main id="main">Shreya Guru Prasad</main>
+  return (
+    <ToastProvider>
+      <SkipLink />
+      <Header />
+      <main id="main">Shreya Guru Prasad</main>
+    </ToastProvider>
+  )
 }

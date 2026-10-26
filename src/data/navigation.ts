@@ -1,4 +1,6 @@
-import type { NavItem } from '@/lib/types'
+import type { Link, NavItem } from '@/lib/types'
+import { isTodo } from '@/lib/utils'
+import { profile } from './profile'
 
 /** Home page sections shown in the header. */
 export const sectionNav: NavItem[] = [
@@ -21,3 +23,12 @@ export const footerNav: NavItem[] = [
   { id: 'education', label: 'Education' },
   { id: 'community', label: 'Community' },
 ]
+
+/** Sections the header watches to highlight the current link ("top" is the hero). */
+export const observedSections: string[] = ['top', ...drawerNav.map((item) => item.id)]
+
+/** LinkedIn and GitHub, leaving out any that are still placeholders. */
+export const socialLinks: Link[] = [
+  { label: 'LinkedIn', href: profile.linkedin },
+  { label: 'GitHub', href: profile.github },
+].filter((link) => !isTodo(link.href))

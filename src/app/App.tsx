@@ -2,6 +2,8 @@ import { Footer } from '@/components/layout/Footer'
 import { Header } from '@/components/layout/Header'
 import { SkipLink } from '@/components/layout/SkipLink'
 import { About } from '@/components/home/About'
+import { Community } from '@/components/home/Community'
+import { Contact } from '@/components/home/Contact'
 import { Education } from '@/components/home/Education'
 import { ExperienceTabs } from '@/components/home/ExperienceTabs'
 import { FactStrip } from '@/components/home/FactStrip'
@@ -23,6 +25,8 @@ export function App() {
         <ExperienceTabs />
         <Education />
         <Skills />
+        <Community />
+        <Contact />
       </main>
       <Footer />
     </ToastProvider>

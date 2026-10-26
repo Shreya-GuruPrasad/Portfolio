@@ -1,6 +1,8 @@
 import { Footer } from '@/components/layout/Footer'
 import { Header } from '@/components/layout/Header'
 import { SkipLink } from '@/components/layout/SkipLink'
+import { About } from '@/components/home/About'
+import { FactStrip } from '@/components/home/FactStrip'
 import { Hero } from '@/components/home/Hero'
 import { ToastProvider } from '@/components/ui/ToastProvider'
 
@@ -11,6 +13,8 @@ export function App() {
       <Header />
       <main id="main">
         <Hero />
+        <FactStrip />
+        <About />
       </main>
       <Footer />
     </ToastProvider>

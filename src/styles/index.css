@@ -19,8 +19,8 @@
   --color-accent: #93b4db;
   --color-transparent: transparent;
 
-  --font-serif: 'Newsreader', Georgia, 'Times New Roman', serif;
-  --font-sans: 'Hanken Grotesk', 'Helvetica Neue', Arial, sans-serif;
+  --font-serif: 'Newsreader', 'Newsreader Fallback', Georgia, 'Times New Roman', serif;
+  --font-sans: 'Hanken Grotesk', 'Hanken Grotesk Fallback', 'Helvetica Neue', Arial, sans-serif;
 
   --radius-pill: 99px;
   --radius-card: 18px;
@@ -70,6 +70,38 @@
     height: 1px;
     background: currentColor;
   }
+}
+
+/*
+ * Local fallbacks sized to match the web fonts (measured in Chromium), so text keeps its
+ * wrapping when the web fonts swap in and the hero does not shift.
+ */
+@font-face {
+  font-family: 'Newsreader Fallback';
+  src: local('Georgia');
+  size-adjust: 93.04%;
+  ascent-override: 79.53%;
+  descent-override: 29.02%;
+  line-gap-override: 0%;
+}
+
+@font-face {
+  font-family: 'Newsreader Fallback';
+  font-style: italic;
+  src: local('Georgia Italic'), local('Georgia-Italic');
+  size-adjust: 84.27%;
+  ascent-override: 87.82%;
+  descent-override: 32.04%;
+  line-gap-override: 0%;
+}
+
+@font-face {
+  font-family: 'Hanken Grotesk Fallback';
+  src: local('Arial');
+  size-adjust: 100.35%;
+  ascent-override: 99.65%;
+  descent-override: 29.89%;
+  line-gap-override: 0%;
 }
 
 @layer base {

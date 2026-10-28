@@ -23,10 +23,9 @@ export const profile: Profile = {
     secondaryCta: { label: 'Get in touch', href: '#contact' },
   },
   facts: [
-    { title: 'ISO 27001', detail: 'Lead Auditor, certified' },
-    { title: 'RMIT University', detail: 'Master of Cyber Security' },
-    { title: 'IEEE', detail: 'Published undergraduate research' },
-    { title: 'AWSN', detail: 'Group Mentoring Program mentee' },
+    { title: 'RMIT University', detail: 'Master of Cyber Security · GPA 3.8 / 4.0' },
+    { title: 'ISO 27001', detail: 'Lead Auditor certified' },
+    { title: 'Building now', detail: 'AI-assisted ISO 27001 readiness tool' },
   ],
   path: [
     {

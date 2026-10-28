@@ -2,9 +2,12 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url><loc>https://shreya-guruprasad.github.io/Portfolio/</loc></url>
   <url><loc>https://shreya-guruprasad.github.io/Portfolio/projects/iso-27001-readiness-tool</loc></url>
+  <url><loc>https://shreya-guruprasad.github.io/Portfolio/projects/guardian-circle</loc></url>
+  <url><loc>https://shreya-guruprasad.github.io/Portfolio/projects/secure-voting-platform</loc></url>
+  <url><loc>https://shreya-guruprasad.github.io/Portfolio/projects/web-app-pentest</loc></url>
+  <url><loc>https://shreya-guruprasad.github.io/Portfolio/projects/mediassist</loc></url>
   <url><loc>https://shreya-guruprasad.github.io/Portfolio/projects/healthcare-risk-management-plan</loc></url>
   <url><loc>https://shreya-guruprasad.github.io/Portfolio/projects/healthcare-breach-root-cause</loc></url>
   <url><loc>https://shreya-guruprasad.github.io/Portfolio/projects/network-audit-firewall-policy</loc></url>
   <url><loc>https://shreya-guruprasad.github.io/Portfolio/projects/applied-cryptography</loc></url>
-  <url><loc>https://shreya-guruprasad.github.io/Portfolio/projects/ieee-thesis</loc></url>
 </urlset>

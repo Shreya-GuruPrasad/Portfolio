@@ -1,4 +1,4 @@
-import { screen, within } from '@testing-library/react'
+import { screen, waitFor, within } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
 import { projects } from '@/data/projects'
 import { profile } from '@/data/profile'
@@ -24,11 +24,11 @@ describe('App routes', () => {
     const project = projects.find((p) => p.slug === 'applied-cryptography')
     if (!project) throw new Error('fixture project missing')
     renderApp('/')
-    await user.click(screen.getByRole('link', { name: new RegExp(`about ${project.title}`) }))
+    await user.click(screen.getByRole('link', { name: project.title }))
     expect(
       await screen.findByRole('heading', { level: 1, name: project.title }),
     ).toBeInTheDocument()
-    expect(document.title).toContain(project.title)
+    await waitFor(() => expect(document.title).toContain(project.title))
   })
 
   it('renders each project detail page with a way back', async () => {
@@ -42,12 +42,13 @@ describe('App routes', () => {
         '/#projects',
       )
       expect(screen.queryByText(/TODO/)).not.toBeInTheDocument()
+      expect(screen.queryByRole('heading', { name: 'Screenshots' })).not.toBeInTheDocument()
       unmount()
     }
   })
 
   it('points header links back to home sections from a project page', async () => {
-    renderApp('/projects/ieee-thesis')
+    renderApp('/projects/mediassist')
     await screen.findByRole('heading', { level: 1 })
     const nav = screen.getByRole('navigation', { name: 'Main' })
     expect(within(nav).getByRole('link', { name: 'Skills' })).toHaveAttribute('href', '/#skills')

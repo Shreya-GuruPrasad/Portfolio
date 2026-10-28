@@ -1,33 +1,42 @@
-import { Link } from 'react-router'
+import { ArrowLink } from '@/components/ui/ArrowLink'
 import { TagList } from '@/components/ui/TagList'
+import { projectsIntro } from '@/data/projects'
 import type { Project } from '@/lib/types'
-import { projectPath } from '@/lib/utils'
-import { ProjectThumb } from './ProjectThumb'
+import { cn, isTodo } from '@/lib/utils'
+import { cardClasses } from './cardStyles'
+import { ProjectMeta } from './ProjectMeta'
+import { ProjectTitle } from './ProjectTitle'
 
 interface ProjectCardProps {
   project: Project
+  className?: string
 }
 
-export function ProjectCard({ project }: ProjectCardProps) {
+export function ProjectCard({ project, className }: ProjectCardProps) {
+  const { github, event } = project.links
+
   return (
-    <article className="flex flex-col gap-3.5 rounded-card border border-faint bg-raise p-[18px] transition duration-200 hover:border-[color-mix(in_srgb,var(--color-accent)_45%,var(--color-faint))] motion-safe:hover:-translate-y-0.5">
-      <ProjectThumb image={project.image} />
-      <div className="flex justify-between gap-3 text-[0.8rem] text-soft">
-        <span>{project.categoryLabel}</span>
-        <span>
-          {project.place} · {project.year}
-        </span>
-      </div>
-      <h3 className="font-serif text-card">{project.title}</h3>
+    <article className={cn(cardClasses, 'sm:p-6', className)}>
+      <ProjectMeta project={project} />
+      <ProjectTitle project={project} className="text-[1.32rem] leading-[1.22]" />
       <p className="text-[0.95rem] text-soft">{project.summary}</p>
+      {project.notes.map((note) => (
+        <div key={note.label} className="border-t border-dashed border-faint pt-3.5">
+          <p className="mb-1 text-[0.72rem] tracking-[0.14em] text-soft uppercase">{note.label}</p>
+          <p className="text-[0.93rem]">{note.text}</p>
+        </div>
+      ))}
       <TagList tags={project.tags} />
-      <Link
-        to={projectPath(project.slug)}
-        className="mt-auto self-start pt-1 text-[0.9rem] text-accent no-underline underline-offset-4 hover:underline"
-      >
-        Read more<span className="sr-only"> about {project.title}</span>{' '}
-        <span aria-hidden="true">→</span>
-      </Link>
+      {github && !isTodo(github) && (
+        <ArrowLink href={github} className="mt-auto pt-1">
+          View on GitHub
+        </ArrowLink>
+      )}
+      {event && (
+        <ArrowLink href={event} className="mt-auto pt-1">
+          {projectsIntro.eventLink}
+        </ArrowLink>
+      )}
     </article>
   )
 }

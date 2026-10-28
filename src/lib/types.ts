@@ -67,56 +67,66 @@ export interface Profile {
 
 export type ProjectCategory = 'grc' | 'technical' | 'research'
 
-export type IllustrationName =
-  'readiness' | 'risk-matrix' | 'root-cause' | 'network' | 'crypto' | 'paper'
+/** Where a project sits on the home page, top to bottom. */
+export type ProjectTier = 'featured' | 'highlight' | 'research' | 'coursework'
 
-export interface ProjectImage {
-  illustration: IllustrationName
+/** A labelled block under a card's summary, e.g. "Outcome" or "My role". */
+export interface ProjectNote {
   label: string
+  text: string
 }
 
-export interface Screenshot {
-  src: string
-  alt: string
-  width: number
-  height: number
+export interface HowItWorksStep {
+  title: string
+  text: string
 }
 
 export interface ProjectLinks {
   github?: string
   paper?: string
+  /** The event a project was built at, e.g. a hackathon site. */
+  event?: string
 }
 
 export interface Project {
   slug: string
   title: string
+  /** Shorter title for the home page card, when it differs from the page title. */
+  cardTitle?: string
   category: ProjectCategory
-  /** Short label for the card meta row, e.g. "GRC · Healthcare". */
+  tier: ProjectTier
+  /** Short label for the card meta row, e.g. "Hackathon · Team ULTRON". */
   categoryLabel: string
-  /** Where the work happened, e.g. "RMIT" or "Independent project". */
-  place: string
+  /** Where the work happened, e.g. "RMIT". */
+  place?: string
+  /** When, e.g. "2026" or "Oct 2026". */
   year: string
   /** e.g. "Individual coursework". */
   context?: string
   /** Only for work in progress, e.g. "In progress · target November 2026". */
   status?: string
   summary: string
+  /** One line for the compact coursework list. */
+  oneLiner?: string
+  notes: ProjectNote[]
   problem: string[]
   whatIDid: string[]
   outcome: string[]
   learned: string[]
+  /** Shown on the card. */
   tags: string[]
+  /** Shown on the detail page. */
   stack: string[]
   links: ProjectLinks
-  featured: boolean
-  image: ProjectImage
-  screenshots: Screenshot[]
+  /** Where the paper is published, shown large on the research card, e.g. IEEE / Xplore. */
+  publisher?: { name: string; library: string }
   /** Extra copy used only by the featured card and its detail page. */
   feature?: {
     tagline: string
     pitch: string
     quote: string
-    quoteDetail: string
+    steps: HowItWorksStep[]
+    dataNote: string
     principles: string[]
     roadmap: string[]
   }

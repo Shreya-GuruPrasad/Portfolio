@@ -1,17 +1,12 @@
 import { Link, useParams } from 'react-router'
 import { NotFound } from '@/app/NotFound'
-import { ProjectThumb } from '@/components/home/ProjectThumb'
 import { Container } from '@/components/layout/Container'
 import { Button } from '@/components/ui/Button'
-import { projectFilters, projects } from '@/data/projects'
+import { categoryName, projects, projectsIntro } from '@/data/projects'
 import { profile } from '@/data/profile'
 import { useDocumentTitle } from '@/hooks/useDocumentTitle'
-import type { Project } from '@/lib/types'
-import { isTodo } from '@/lib/utils'
+import { isTodo, projectDate } from '@/lib/utils'
 import { DetailSection } from './DetailSection'
-
-const categoryName = (project: Project) =>
-  projectFilters.find((filter) => filter.value === project.category)?.label ?? ''
 
 export default function ProjectDetail() {
   const { slug } = useParams()
@@ -28,8 +23,8 @@ export default function ProjectDetail() {
   const { feature, links } = project
   const github = links.github && !isTodo(links.github) ? links.github : undefined
   const meta = [
-    { term: 'Category', value: categoryName(project) },
-    { term: 'Year', value: `${project.place} · ${project.year}` },
+    { term: 'Category', value: categoryName(project.category) },
+    { term: 'When', value: projectDate(project) },
     { term: 'Stack', value: project.stack.join(', ') },
   ].filter((item) => item.value)
 
@@ -77,41 +72,18 @@ export default function ProjectDetail() {
         <DetailSection title="What I learned" items={project.learned} list />
         {feature && <DetailSection title="Roadmap" items={feature.roadmap} list />}
 
-        <DetailSection title="Screenshots">
-          {project.screenshots.length > 0 ? (
-            <div className="grid gap-6">
-              {project.screenshots.map((shot) => (
-                <img
-                  key={shot.src}
-                  src={shot.src}
-                  alt={shot.alt}
-                  width={shot.width}
-                  height={shot.height}
-                  loading="lazy"
-                  decoding="async"
-                  className="h-auto w-full rounded-thumb border border-faint"
-                />
-              ))}
-            </div>
-          ) : (
-            <figure className="grid gap-3">
-              <ProjectThumb image={project.image} />
-              <figcaption className="text-[0.9rem] text-soft">
-                Screenshots are on the way. The illustration above stands in for now.
-              </figcaption>
-            </figure>
-          )}
-        </DetailSection>
-
-        {(github || links.paper) && (
+        {(github || links.paper || links.event) && (
           <DetailSection title="Links">
             <div className="flex flex-wrap gap-3">
               {github && <Button href={github}>View on GitHub</Button>}
               {links.paper && (
                 <Button href={links.paper} variant={github ? 'ghost' : 'primary'}>
-                  Read the paper on IEEE Xplore
+                  {projectsIntro.paperLink}
+                  {project.publisher &&
+                    ` on ${project.publisher.name} ${project.publisher.library}`}
                 </Button>
               )}
+              {links.event && <Button href={links.event}>{projectsIntro.eventLink}</Button>}
             </div>
           </DetailSection>
         )}

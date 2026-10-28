@@ -43,10 +43,11 @@ export interface Profile {
     secondaryCta: Link
   }
   facts: Fact[]
+  /** "My path" timeline in the hero, newest first. */
+  path: TimelineEntry[]
   about: {
     title: string
     paragraphs: RichText[]
-    path: TimelineEntry[]
   }
   contact: {
     eyebrow: string

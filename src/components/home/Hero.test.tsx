@@ -1,4 +1,4 @@
-import { render, screen } from '@testing-library/react'
+import { render, screen, within } from '@testing-library/react'
 import { profile } from '@/data/profile'
 import { Hero } from './Hero'
 
@@ -16,8 +16,15 @@ describe('Hero', () => {
     expect(screen.getByRole('link', { name: 'Get in touch' })).toHaveAttribute('href', '#contact')
   })
 
-  it('hides the portrait placeholder from assistive technology', () => {
+  it('shows the availability line', () => {
     render(<Hero />)
-    expect(screen.queryByRole('img')).not.toBeInTheDocument()
+    expect(screen.getByText(profile.availability)).toBeInTheDocument()
+  })
+
+  it('lists the path newest first, starting with Now', () => {
+    render(<Hero />)
+    const items = within(screen.getByRole('list', { name: 'My path' })).getAllByRole('listitem')
+    expect(items).toHaveLength(profile.path.length)
+    expect(items[0]).toHaveTextContent(/^Now/)
   })
 })

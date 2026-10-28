@@ -1,7 +1,7 @@
 import { Container } from '@/components/layout/Container'
 import { Button } from '@/components/ui/Button'
 import { profile } from '@/data/profile'
-import { Portrait } from './Portrait'
+import { MyPath } from './MyPath'
 
 export function Hero() {
   const { hero, availability } = profile
@@ -10,7 +10,7 @@ export function Hero() {
     <section
       id="top"
       aria-labelledby="hero-title"
-      className="pt-[clamp(56px,9vw,112px)] pb-[clamp(56px,8vw,96px)]"
+      className="pt-[clamp(40px,6vw,80px)] pb-[clamp(40px,5vw,64px)]"
     >
       <Container className="grid items-center gap-10 md:grid-cols-[minmax(0,1.5fr)_minmax(0,1fr)] md:gap-16">
         <div className="fade-up">
@@ -29,15 +29,15 @@ export function Hero() {
               {hero.secondaryCta.label}
             </Button>
           </div>
-          <p className="mt-7 flex items-center gap-2.5 text-[0.9rem] text-soft">
+          <p className="mt-7 flex items-baseline gap-3 text-[0.92rem] text-soft">
             <span
               aria-hidden="true"
-              className="size-2 flex-none rounded-full bg-ok shadow-[0_0_0_4px_color-mix(in_srgb,var(--color-ok)_18%,transparent)]"
+              className="size-2 flex-none -translate-y-px rounded-full bg-accent shadow-[0_0_0_4px_color-mix(in_srgb,var(--color-accent)_20%,transparent)]"
             />
             {availability}
           </p>
         </div>
-        <Portrait />
+        <MyPath />
       </Container>
     </section>
   )

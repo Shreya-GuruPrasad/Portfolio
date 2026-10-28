@@ -8,17 +8,17 @@ export const profile: Profile = {
   location: 'Melbourne, Australia',
   email: 'shreya.guruprasad@gmail.com',
   siteUrl: 'https://shreya-guruprasad.github.io/Portfolio/',
-  linkedin: 'TODO: LinkedIn profile URL',
+  linkedin: 'https://www.linkedin.com/in/shreya-g-prasad',
   github: 'TODO: GitHub profile URL (probably https://github.com/Shreya-GuruPrasad, confirm)',
-  availability: 'Open to GRC internships and graduate roles in Melbourne',
+  availability: 'Now seeking cyber security internships and junior roles in Melbourne',
   photo: 'TODO: professional photo',
   hero: {
     greeting: "Hi, I'm Shreya.",
     headline: {
-      lead: 'I help organisations understand their security risk, and',
-      emphasis: 'do something about it.',
+      lead: 'Curious about systems.',
+      emphasis: 'Serious about securing them.',
     },
-    lede: "I'm an ISO 27001 Lead Auditor and Master of Cyber Security student at RMIT, with an engineering background. I'm looking for my first role in governance, risk and compliance.",
+    lede: "I'm studying cyber security at RMIT with an engineering background and hands-on work in secure software, penetration testing, risk and compliance. I test what should fail, not just what should work, and I'm looking for an internship where I can put that to work.",
     primaryCta: { label: 'See my work', href: '#projects' },
     secondaryCta: { label: 'Get in touch', href: '#contact' },
   },
@@ -27,6 +27,30 @@ export const profile: Profile = {
     { title: 'RMIT University', detail: 'Master of Cyber Security' },
     { title: 'IEEE', detail: 'Published undergraduate research' },
     { title: 'AWSN', detail: 'Group Mentoring Program mentee' },
+  ],
+  path: [
+    {
+      when: 'Now',
+      title: 'GPA 3.8 · ISO 27001 Lead Auditor certified',
+      detail: 'Building an ISO 27001 readiness tool',
+    },
+    { when: 'Mar 2026', title: 'Moved to Melbourne', detail: 'Master of Cyber Security, RMIT' },
+    {
+      when: 'Jul 2025 to Jan 2026',
+      title: 'Intern, Dokreativ Technologies',
+      detail: 'Product development, security-by-design',
+    },
+    {
+      when: 'Jul 2025',
+      title: 'MediAssist published by IEEE',
+      detail: 'First author, IEEE ICCAMS 2025',
+    },
+    { when: 'Jun 2025', title: 'B.E. Electronics & Communication', detail: 'Bengaluru, India' },
+    {
+      when: 'Feb to May 2025',
+      title: 'Intern, Bosch Global Software Technologies',
+      detail: 'ADAS parking functions, safety validation',
+    },
   ],
   about: {
     title: 'From circuits to controls',
@@ -46,20 +70,6 @@ export const profile: Profile = {
         { strong: 'Master of Cyber Security at RMIT' },
         ". In GRC I've found work where technical detail meets real decisions. I'm now a certified ISO 27001 Lead Auditor, and I'm building a tool that helps audit teams prepare for ISO 27001 engagements.",
       ],
-    ],
-    path: [
-      {
-        when: '2025',
-        title: 'B.E. Electronics & Communication',
-        detail: 'RNS Institute of Technology, Bengaluru',
-      },
-      {
-        when: '2025',
-        title: 'Internships at Bosch and Dokreativ',
-        detail: 'Safety validation, then security-by-design',
-      },
-      { when: '2026', title: 'Moved to Melbourne', detail: 'Master of Cyber Security, RMIT' },
-      { when: 'Now', title: 'ISO 27001 Lead Auditor', detail: 'Building my first GRC tool' },
     ],
   },
   contact: {

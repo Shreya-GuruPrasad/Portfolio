@@ -3,7 +3,9 @@ import { expect, test } from '@playwright/test'
 
 const pages = [
   { name: 'home', path: './' },
-  { name: 'project page', path: 'projects/iso-27001-readiness-tool' },
+  { name: 'featured project page', path: 'projects/iso-27001-readiness-tool' },
+  { name: 'team project page', path: 'projects/secure-voting-platform' },
+  { name: 'research project page', path: 'projects/mediassist' },
   { name: 'not found page', path: 'projects/missing' },
 ]
 
@@ -24,5 +26,12 @@ test('mobile drawer has no axe violations when open', async ({ page, viewport })
   await page.getByRole('button', { name: 'Open menu' }).click()
   await page.waitForTimeout(400)
   const results = await new AxeBuilder({ page }).include('#mobile-menu').analyze()
+  expect(results.violations).toEqual([])
+})
+
+test('projects section has no axe violations when filtered', async ({ page }) => {
+  await page.goto('./')
+  await page.getByRole('button', { name: 'Research' }).click()
+  const results = await new AxeBuilder({ page }).include('#projects').analyze()
   expect(results.violations).toEqual([])
 })

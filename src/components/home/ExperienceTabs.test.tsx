@@ -3,7 +3,7 @@ import userEvent from '@testing-library/user-event'
 import { experience } from '@/data/experience'
 import { ExperienceTabs } from './ExperienceTabs'
 
-const [first = '', second = '', third = ''] = experience.map((role) => role.tabLabel)
+const [first = '', second = ''] = experience.map((role) => role.tabLabel)
 
 describe('ExperienceTabs', () => {
   it('selects the first tab and shows only its panel', () => {
@@ -14,6 +14,11 @@ describe('ExperienceTabs', () => {
     expect(screen.getByRole('tab', { name: second })).toHaveAttribute('tabindex', '-1')
     expect(screen.getAllByRole('tabpanel')).toHaveLength(1)
     expect(screen.getByRole('tabpanel', { name: first })).toBeVisible()
+  })
+
+  it('shows only Dokreativ and Bosch, Dokreativ first', () => {
+    render(<ExperienceTabs />)
+    expect(screen.getAllByRole('tab').map((tab) => tab.textContent)).toEqual(['Dokreativ', 'Bosch'])
   })
 
   it('moves selection with the arrow keys and wraps around', async () => {
@@ -27,13 +32,13 @@ describe('ExperienceTabs', () => {
     expect(screen.getByRole('tabpanel', { name: second })).toBeVisible()
 
     await user.keyboard('{ArrowRight}')
-    expect(screen.getByRole('tab', { name: third })).toHaveFocus()
-
-    await user.keyboard('{ArrowDown}')
     expect(screen.getByRole('tab', { name: first })).toHaveFocus()
 
     await user.keyboard('{ArrowUp}')
-    expect(screen.getByRole('tab', { name: third })).toHaveFocus()
+    expect(screen.getByRole('tab', { name: second })).toHaveFocus()
+
+    await user.keyboard('{ArrowLeft}')
+    expect(screen.getByRole('tab', { name: first })).toHaveFocus()
   })
 
   it('jumps to the first and last tab with Home and End', async () => {
@@ -41,7 +46,7 @@ describe('ExperienceTabs', () => {
     render(<ExperienceTabs />)
     await user.click(screen.getByRole('tab', { name: first }))
     await user.keyboard('{End}')
-    expect(screen.getByRole('tab', { name: third })).toHaveAttribute('aria-selected', 'true')
+    expect(screen.getByRole('tab', { name: second })).toHaveAttribute('aria-selected', 'true')
     await user.keyboard('{Home}')
     expect(screen.getByRole('tab', { name: first })).toHaveAttribute('aria-selected', 'true')
   })

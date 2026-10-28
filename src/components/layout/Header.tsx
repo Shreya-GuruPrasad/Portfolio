@@ -57,14 +57,11 @@ export function Header() {
             </svg>
           </button>
 
-          <SectionLink sectionId="top" className="flex items-center gap-3 no-underline">
-            <span
-              aria-hidden="true"
-              className="grid size-9 place-items-center rounded-full border border-faint font-serif text-base text-accent italic"
-            >
-              {profile.name.charAt(0)}
-            </span>
-            <span className="font-serif text-[1.15rem] whitespace-nowrap">{profile.name}</span>
+          <SectionLink
+            sectionId="top"
+            className="font-serif text-[1.15rem] whitespace-nowrap no-underline"
+          >
+            {profile.name}
           </SectionLink>
 
           <nav aria-label="Main" className="ml-auto hidden gap-1 nav:flex">

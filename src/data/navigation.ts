@@ -4,12 +4,12 @@ import { profile } from './profile'
 
 /** Home page sections shown in the header. */
 export const sectionNav: NavItem[] = [
-  { id: 'about', label: 'About' },
   { id: 'projects', label: 'Projects' },
   { id: 'experience', label: 'Experience' },
   { id: 'education', label: 'Education' },
   { id: 'skills', label: 'Skills' },
   { id: 'community', label: 'Community' },
+  { id: 'about', label: 'About' },
 ]
 
 /** The drawer adds Contact, which the desktop header reaches through its button. */

@@ -63,6 +63,17 @@ describe('Header', () => {
     )
   })
 
+  it('lists the sections in page order, with the name as the only brand', () => {
+    renderHeader()
+    const mainNav = screen.getByRole('navigation', { name: 'Main' })
+    expect(
+      within(mainNav)
+        .getAllByRole('link')
+        .map((link) => link.textContent),
+    ).toEqual(['Projects', 'Experience', 'Education', 'Skills', 'Community', 'About'])
+    expect(screen.getByRole('link', { name: 'Shreya Guru Prasad' })).toHaveAttribute('href', '#top')
+  })
+
   it('highlights the link for the section in view', () => {
     renderHeader()
     const mainNav = screen.getByRole('navigation', { name: 'Main' })

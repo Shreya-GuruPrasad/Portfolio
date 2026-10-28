@@ -1,13 +1,19 @@
 /**
  * Guards the site's wording rules (docs: no em or en dashes; ranges use "to" and "Since").
- * Scans the raw source of every data file, so new copy is checked as soon as it is added.
+ * Scans the raw source of every data file and index.html (meta tags, JSON-LD), so new copy is
+ * checked as soon as it is added.
  */
-const sources = Object.entries(
-  import.meta.glob<string>('./*.ts', { query: '?raw', import: 'default', eager: true }),
-).filter(([path]) => !path.endsWith('.test.ts'))
+import indexHtml from '../../index.html?raw'
+
+const sources = [
+  ...Object.entries(
+    import.meta.glob<string>('./*.ts', { query: '?raw', import: 'default', eager: true }),
+  ).filter(([path]) => !path.endsWith('.test.ts')),
+  ['index.html', indexHtml],
+]
 
 const banned: Array<[string, RegExp]> = [
-  ['an em or en dash', /[–—]/],
+  ['an em or en dash', /[\u2013\u2014]/],
   ['"Let\'s talk"', /let's talk/i],
   ['"Thanks for reading"', /thanks for reading/i],
   ['"Glad you stopped by"', /glad you stopped by/i],
@@ -33,7 +39,7 @@ describe('site wording', () => {
 
   it.each(sources)('%s only calls her "ISO 27001 Lead Auditor certified"', (_path, source) => {
     // The certifications list may name the credential itself.
-    const prose = source.replace(/name: 'ISO 27001 Lead Auditor'/g, '')
+    const prose = source.replace(/name"?: ['"]ISO 27001 Lead Auditor['"]/g, '')
     expect(prose).not.toMatch(/Lead Auditor(?! certified)/)
   })
 })

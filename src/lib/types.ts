@@ -21,9 +21,7 @@ export interface TimelineEntry {
 
 export interface Profile {
   name: string
-  shortName: string
   roleLine: string
-  location: string
   email: string
   /** Public site URL with trailing slash. */
   siteUrl: string
@@ -133,7 +131,6 @@ export interface WorkRole {
   title: string
   period: string
   location: string
-  type?: string
   points: string[]
 }
 

@@ -2,9 +2,7 @@ import type { Profile } from '@/lib/types'
 
 export const profile: Profile = {
   name: 'Shreya Guru Prasad',
-  shortName: 'Shreya',
   roleLine: 'Governance, risk & compliance · Melbourne',
-  location: 'Melbourne, Australia',
   email: 'shreya.guruprasad@gmail.com',
   siteUrl: 'https://shreya-guruprasad.github.io/Portfolio/',
   linkedin: 'https://www.linkedin.com/in/shreya-g-prasad',

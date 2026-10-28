@@ -14,7 +14,7 @@ export function ExperienceTabs() {
           {role.title} <span className="text-accent">· {role.company}</span>
         </h3>
         <p className="mt-1.5 mb-5 text-[0.88rem] text-soft">
-          {[role.period, role.location, role.type].filter(Boolean).join(' · ')}
+          {role.period} · {role.location}
         </p>
         <PointList points={role.points} className="max-w-prose" />
       </>

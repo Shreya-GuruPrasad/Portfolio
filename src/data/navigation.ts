@@ -2,7 +2,7 @@ import type { Link, NavItem } from '@/lib/types'
 import { isTodo } from '@/lib/utils'
 import { profile } from './profile'
 
-/** Home page sections shown in the header. */
+/** Home page sections, in page order, for the header and footer. */
 export const sectionNav: NavItem[] = [
   { id: 'projects', label: 'Projects' },
   { id: 'experience', label: 'Experience' },
@@ -14,15 +14,6 @@ export const sectionNav: NavItem[] = [
 
 /** The drawer adds Contact, which the desktop header reaches through its button. */
 export const drawerNav: NavItem[] = [...sectionNav, { id: 'contact', label: 'Contact' }]
-
-/** Footer "Explore" column. */
-export const footerNav: NavItem[] = [
-  { id: 'about', label: 'About' },
-  { id: 'projects', label: 'Projects' },
-  { id: 'experience', label: 'Experience' },
-  { id: 'education', label: 'Education' },
-  { id: 'community', label: 'Community' },
-]
 
 /** Sections the header watches to highlight the current link ("top" is the hero). */
 export const observedSections: string[] = ['top', ...drawerNav.map((item) => item.id)]

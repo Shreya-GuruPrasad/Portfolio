@@ -64,9 +64,7 @@ export const profile: Profile = {
     text: 'Engineer by training, with hands-on work in security testing, secure software, risk and compliance. Based in Melbourne and open to cyber security internships and junior roles. Hiring, or just want to talk security? My inbox is open.',
   },
   footer: {
-    tagline: 'Governance, risk and compliance. ISO 27001 Lead Auditor based in Melbourne.',
-    copyright: '© 2026 Shreya Guru Prasad',
-    place: 'Melbourne, Australia',
+    copyright: '© 2026 · Melbourne',
   },
   seo: {
     title: 'Shreya Guru Prasad | GRC & Cyber Security',

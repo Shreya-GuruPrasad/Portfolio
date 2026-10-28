@@ -50,9 +50,7 @@ export interface Profile {
     text: string
   }
   footer: {
-    tagline: string
     copyright: string
-    place: string
   }
   seo: {
     title: string

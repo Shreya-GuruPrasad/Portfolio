@@ -3,9 +3,6 @@
  * Missing facts are written as strings starting with "TODO:" (see isTodo in utils).
  */
 
-/** A run of text where some phrases are emphasised (rendered bold). */
-export type RichText = ReadonlyArray<string | { strong: string }>
-
 export interface Link {
   label: string
   href: string
@@ -25,7 +22,6 @@ export interface TimelineEntry {
 export interface Profile {
   name: string
   shortName: string
-  initials: string
   roleLine: string
   location: string
   email: string
@@ -34,7 +30,7 @@ export interface Profile {
   linkedin: string
   github: string
   availability: string
-  photo: string
+  photoAlt: string
   hero: {
     greeting: string
     headline: { lead: string; emphasis: string }
@@ -46,8 +42,8 @@ export interface Profile {
   /** "My path" timeline in the hero, newest first. */
   path: TimelineEntry[]
   about: {
-    title: string
-    paragraphs: RichText[]
+    title: { lead: string; emphasis: string }
+    paragraphs: string[]
   }
   contact: {
     eyebrow: string

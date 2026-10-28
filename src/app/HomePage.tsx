@@ -17,12 +17,12 @@ export function HomePage() {
     <>
       <Hero />
       <FactStrip />
-      <About />
       <ProjectsSection />
       <ExperienceTabs />
       <Education />
       <Skills />
       <Community />
+      <About />
       <Contact />
     </>
   )

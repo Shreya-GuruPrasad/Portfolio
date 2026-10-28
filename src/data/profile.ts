@@ -3,7 +3,6 @@ import type { Profile } from '@/lib/types'
 export const profile: Profile = {
   name: 'Shreya Guru Prasad',
   shortName: 'Shreya',
-  initials: 'SG',
   roleLine: 'Governance, risk & compliance · Melbourne',
   location: 'Melbourne, Australia',
   email: 'shreya.guruprasad@gmail.com',
@@ -11,7 +10,7 @@ export const profile: Profile = {
   linkedin: 'https://www.linkedin.com/in/shreya-g-prasad',
   github: 'TODO: GitHub profile URL (probably https://github.com/Shreya-GuruPrasad, confirm)',
   availability: 'Now seeking cyber security internships and junior roles in Melbourne',
-  photo: 'TODO: professional photo',
+  photoAlt: 'Portrait of Shreya Guru Prasad',
   hero: {
     greeting: "Hi, I'm Shreya.",
     headline: {
@@ -52,23 +51,12 @@ export const profile: Profile = {
     },
   ],
   about: {
-    title: 'From circuits to controls',
+    title: { lead: 'Learning to protect', emphasis: 'what I used to build.' },
     paragraphs: [
-      [
-        'I grew up in Bengaluru and studied ',
-        { strong: 'Electronics and Communication Engineering' },
-        ', where my final-year thesis was published by IEEE. I spent much of my degree organising things too: festival committees, workshops for juniors, and a state-level baseball team.',
-      ],
-      [
-        'At ',
-        { strong: 'Bosch' },
-        ' I tested parking features for driver-assistance systems. Every result had to be checked, documented and traceable. I found I cared most about the question behind the testing: what could go wrong, and how would we know?',
-      ],
-      [
-        'That question brought me to Melbourne and a ',
-        { strong: 'Master of Cyber Security at RMIT' },
-        ". In GRC I've found work where technical detail meets real decisions. I'm now a certified ISO 27001 Lead Auditor, and I'm building a tool that helps audit teams prepare for ISO 27001 engagements.",
-      ],
+      'In my final year of engineering I built MediAssist, a low-cost robot that delivers medicine through hospital wards on its own, sent off by staff with a tap on their phones. It became my thesis and an IEEE publication. At the same time I was interning at Bosch, testing ADAS parking functions, where "it mostly works" is never good enough.',
+      'Working on both, I kept seeing the same thing: the more connected a machine becomes, the more its safety depends on its security. So I decided to learn how to protect the things I had been building.',
+      "That decision came with a plane ticket. In early 2026 I moved from Bengaluru to Melbourne to start a Master of Cyber Security at RMIT, in a field I had never formally studied. Today I hold a 3.8 / 4.0 GPA, with High Distinctions in three of my four first-semester subjects, and I'm ISO 27001 Lead Auditor certified.",
+      'Engineering turned out to be the best head start. I still think in whole systems, from the sensor to the cloud to the person holding the phone. Much of my work now is about making sure no single person holds too much power: expiring admin rights, a second approver for critical actions, and audit trails that expose tampering.',
     ],
   },
   contact: {

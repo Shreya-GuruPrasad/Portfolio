@@ -10,6 +10,14 @@ describe('Education', () => {
     }
   })
 
+  it('uses the present-tense title and an ongoing date for RMIT', () => {
+    render(<Education />)
+    expect(screen.getByRole('heading', { level: 2 })).toHaveTextContent(
+      'Studies and certifications',
+    )
+    expect(screen.getByText('Since Mar 2026')).toBeInTheDocument()
+  })
+
   it('badges only the certified certification', () => {
     render(<Education />)
     const list = screen.getByRole('list', { name: 'Certifications' })

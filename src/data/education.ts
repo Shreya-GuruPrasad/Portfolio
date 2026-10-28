@@ -1,7 +1,8 @@
 import type { Certification, Education } from '@/lib/types'
 
 export const educationIntro = {
-  title: "What I've studied",
+  title: 'Studies and certifications',
+  certificationsTitle: 'Certifications',
 }
 
 export const education: Education[] = [
@@ -9,10 +10,10 @@ export const education: Education[] = [
     id: 'rmit',
     degree: 'Master of Cyber Security',
     institution: 'RMIT University, Melbourne',
-    period: 'Mar 2026 – Present',
+    period: 'Since Mar 2026',
     points: [
-      'First semester complete',
-      'Risk analysis, cryptography and security protocols, secure system design, network defence, traffic analysis',
+      'GPA 3.8 / 4.0, with High Distinctions in Introduction to Cyber Security, Practical Data Science with Python, and Data Communication & Net-centric Computing',
+      'Now studying: Digital Risk Management, Ethical Hacking & Security Testing, Secure Software Systems, Security in Computing & IT',
     ],
   },
   {
@@ -20,7 +21,7 @@ export const education: Education[] = [
     degree: 'B.E. Electronics and Communication',
     institution: 'RNS Institute of Technology (VTU), Bengaluru',
     period: 'Graduated Jun 2025',
-    points: ['CGPA 8.54 / 10', 'Final-year thesis published by IEEE'],
+    points: ['CGPA 8.54 / 10', 'Thesis on an autonomous hospital robot, published by IEEE'],
   },
 ]
 

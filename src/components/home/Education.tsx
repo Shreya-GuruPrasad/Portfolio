@@ -19,12 +19,12 @@ export function Education() {
         ))}
       </div>
 
-      <div className="mt-12">
+      <div className="mt-8">
         <h3
           id="certifications-title"
-          className="mb-1.5 text-eyebrow font-medium tracking-[0.14em] text-soft uppercase"
+          className="mb-1.5 text-[0.78rem] font-medium tracking-[0.14em] text-soft uppercase"
         >
-          Certifications
+          {educationIntro.certificationsTitle}
         </h3>
         <ul aria-labelledby="certifications-title">
           {certifications.map((cert) => (
@@ -35,7 +35,7 @@ export function Education() {
               <span className={cert.certified ? 'font-serif text-[1.2rem]' : 'font-medium'}>
                 {cert.name}
                 {cert.certified && (
-                  <span className="ml-2.5 rounded-pill bg-accent px-2.5 py-0.5 align-[2px] font-sans text-[0.76rem] font-medium text-bg">
+                  <span className="ml-3 inline-block rounded-pill border border-[color-mix(in_srgb,var(--color-accent)_55%,transparent)] bg-[color-mix(in_srgb,var(--color-accent)_14%,transparent)] px-2.5 py-[5px] align-[3px] font-sans text-[0.72rem] leading-none font-medium tracking-[0.08em] text-accent uppercase">
                     Certified
                   </span>
                 )}

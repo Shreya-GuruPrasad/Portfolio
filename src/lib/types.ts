@@ -170,13 +170,8 @@ export interface CommunityRole {
   role: string
   impact: string
   org: { name: string; url?: string }
-  /** Extra detail shown after the organisation, e.g. "2026" or "Bengaluru". */
+  /** Extra detail shown after the organisation, e.g. "2026" or "Melbourne · Part-time". */
   detail?: string
-}
-
-export interface CommunityGroup {
-  title: string
-  roles: CommunityRole[]
 }
 
 export interface NavItem {

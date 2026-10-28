@@ -3,18 +3,33 @@ import { community } from '@/data/community'
 import { Community } from './Community'
 
 describe('Community', () => {
-  it('lists each group with role-first entries', () => {
+  it('shows one flat list with no group headings', () => {
     render(<Community />)
-    for (const group of community) {
-      const list = screen.getByRole('list', { name: group.title })
-      const items = within(list).getAllByRole('listitem')
-      expect(items).toHaveLength(group.roles.length)
-      expect(items[0]?.firstElementChild).toHaveTextContent(group.roles[0]?.role ?? '')
-    }
+    expect(screen.getAllByRole('list')).toHaveLength(1)
+    expect(screen.queryByRole('heading', { level: 3 })).not.toBeInTheDocument()
   })
 
-  it('never shows placeholder text', () => {
+  it('lists the roles in order, each leading with the role then the organisation', () => {
     render(<Community />)
-    expect(screen.queryByText(/TODO/)).not.toBeInTheDocument()
+    const items = within(screen.getByRole('list')).getAllByRole('listitem')
+    expect(items.map((item) => item.firstElementChild?.textContent)).toEqual([
+      'Customer service team member',
+      'Health education mentor',
+      'Part of the Group Mentoring Program',
+      'Treasurer',
+      'Regular event volunteer',
+    ])
+    community.forEach((entry, index) => {
+      expect(items[index]?.children[1]).toHaveTextContent(entry.org.name)
+    })
+  })
+
+  it('links organisations that have a site, in a new tab', () => {
+    render(<Community />)
+    expect(screen.getByRole('link', { name: /CHASE Program/ })).toHaveAttribute(
+      'href',
+      'https://chaseprogram.org.au/the-chase-program/',
+    )
+    expect(screen.getByRole('link', { name: /CHASE Program/ })).toHaveAttribute('target', '_blank')
   })
 })

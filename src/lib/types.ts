@@ -158,9 +158,12 @@ export interface Certification {
   certified: boolean
 }
 
+/** A skill, or a language with its level, e.g. { name: 'German', level: 'Elementary' }. */
+export type SkillItem = string | { name: string; level: string }
+
 export interface SkillGroup {
   title: string
-  items: string[]
+  items: SkillItem[]
 }
 
 export interface CommunityRole {

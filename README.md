@@ -2,8 +2,8 @@
 
 [![CI](https://github.com/Shreya-GuruPrasad/Portfolio/actions/workflows/ci.yml/badge.svg)](https://github.com/Shreya-GuruPrasad/Portfolio/actions/workflows/ci.yml)
 
-Personal portfolio of Shreya Guru Prasad, ISO 27001 Lead Auditor and Master of Cyber Security
-student at RMIT, Melbourne.
+Personal portfolio of Shreya Guru Prasad, Master of Cyber Security student at RMIT, Melbourne,
+and ISO 27001 Lead Auditor certified.
 
 Live site: https://shreya-guruprasad.github.io/Portfolio/
 

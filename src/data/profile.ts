@@ -69,6 +69,6 @@ export const profile: Profile = {
   seo: {
     title: 'Shreya Guru Prasad | GRC & Cyber Security',
     description:
-      'ISO 27001 Lead Auditor and Master of Cyber Security student at RMIT, Melbourne. Open to GRC internships and graduate roles.',
+      'Master of Cyber Security student at RMIT, Melbourne, and ISO 27001 Lead Auditor certified. Open to cyber security internships and junior roles.',
   },
 }

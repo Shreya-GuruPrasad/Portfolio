@@ -60,9 +60,8 @@ export const profile: Profile = {
     ],
   },
   contact: {
-    eyebrow: "What's next?",
-    heading: "Let's talk",
-    text: "I'm looking for GRC internships, graduate programs and entry-level roles in Melbourne. If your team works on risk, compliance or audit, I'd love to hear from you.",
+    heading: 'Have a role, or a conversation, in mind?',
+    text: 'Engineer by training, with hands-on work in security testing, secure software, risk and compliance. Based in Melbourne and open to cyber security internships and junior roles. Hiring, or just want to talk security? My inbox is open.',
   },
   footer: {
     tagline: 'Governance, risk and compliance. ISO 27001 Lead Auditor based in Melbourne.',

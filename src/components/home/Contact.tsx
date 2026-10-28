@@ -11,10 +11,9 @@ export function Contact() {
   return (
     <Section id="contact" labelledBy="contact-title" band>
       <div className="mx-auto max-w-[640px] text-center">
-        <p className="eyebrow">{contact.eyebrow}</p>
         <h2
           id="contact-title"
-          className="mt-3.5 font-serif text-[clamp(2.4rem,6vw,3.8rem)] leading-[1.05] font-light tracking-[-0.025em]"
+          className="font-serif text-[clamp(2.4rem,6vw,3.8rem)] leading-[1.05] font-light tracking-[-0.025em]"
         >
           {contact.heading}
         </h2>

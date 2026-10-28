@@ -46,7 +46,6 @@ export interface Profile {
     paragraphs: string[]
   }
   contact: {
-    eyebrow: string
     heading: string
     text: string
   }

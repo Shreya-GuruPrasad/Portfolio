@@ -13,6 +13,17 @@ function renderContact() {
 }
 
 describe('Contact', () => {
+  it('opens straight with the heading and offers LinkedIn', () => {
+    renderContact()
+    expect(screen.getByRole('heading', { level: 2 })).toHaveTextContent(
+      'Have a role, or a conversation, in mind?',
+    )
+    expect(screen.getByRole('link', { name: /LinkedIn/ })).toHaveAttribute(
+      'href',
+      'https://www.linkedin.com/in/shreya-g-prasad',
+    )
+  })
+
   it('shows the email address as text', () => {
     renderContact()
     expect(screen.getByText(profile.email)).toBeInTheDocument()

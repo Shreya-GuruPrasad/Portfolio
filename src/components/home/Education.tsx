@@ -5,7 +5,7 @@ import { certifications, education, educationIntro } from '@/data/education'
 
 export function Education() {
   return (
-    <Section id="education" labelledBy="education-title" flushTop>
+    <Section id="education" labelledBy="education-title">
       <SectionHeader eyebrow="Education" title={educationIntro.title} titleId="education-title" />
 
       <div className="grid gap-6 sm:grid-cols-2">

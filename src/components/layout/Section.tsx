@@ -6,18 +6,18 @@ interface SectionProps {
   id: string
   /** Id of the heading that names this section. */
   labelledBy: string
-  /** Drop the top padding when the previous section already provides the space. */
-  flushTop?: boolean
+  /** Sit on the slightly lighter band background, to separate neighbouring sections. */
+  band?: boolean
   className?: string
   children: ReactNode
 }
 
-export function Section({ id, labelledBy, flushTop, className, children }: SectionProps) {
+export function Section({ id, labelledBy, band, className, children }: SectionProps) {
   return (
     <section
       id={id}
       aria-labelledby={labelledBy}
-      className={cn('py-section', flushTop && 'pt-0', className)}
+      className={cn('border-t border-faint py-section', band && 'bg-band', className)}
     >
       <Container>{children}</Container>
     </section>

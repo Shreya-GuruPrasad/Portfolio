@@ -28,7 +28,7 @@ export function ProjectsSection() {
   }
 
   return (
-    <Section id="projects" labelledBy="projects-title" flushTop>
+    <Section id="projects" labelledBy="projects-title">
       <SectionHeader
         eyebrow="Projects"
         title={projectsIntro.title}

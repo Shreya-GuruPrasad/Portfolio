@@ -4,7 +4,7 @@ import { skills, skillsIntro } from '@/data/skills'
 
 export function Skills() {
   return (
-    <Section id="skills" labelledBy="skills-title" flushTop>
+    <Section id="skills" labelledBy="skills-title" band>
       <SectionHeader eyebrow="Skills" title={skillsIntro.title} titleId="skills-title" />
       <div className="grid gap-x-14 gap-y-9 sm:grid-cols-2">
         {skills.map((group) => {

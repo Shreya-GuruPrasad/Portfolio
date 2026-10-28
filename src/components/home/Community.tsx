@@ -7,7 +7,7 @@ import { cn, isTodo } from '@/lib/utils'
 
 export function Community() {
   return (
-    <Section id="community" labelledBy="community-title" flushTop>
+    <Section id="community" labelledBy="community-title">
       <SectionHeader
         eyebrow="Community"
         title={communityIntro.title}

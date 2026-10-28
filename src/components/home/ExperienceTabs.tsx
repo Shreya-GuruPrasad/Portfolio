@@ -22,7 +22,7 @@ export function ExperienceTabs() {
   }))
 
   return (
-    <Section id="experience" labelledBy="experience-title" flushTop>
+    <Section id="experience" labelledBy="experience-title" band>
       <SectionHeader
         eyebrow="Experience"
         title={experienceIntro.title}

@@ -9,7 +9,7 @@ export function Contact() {
   const copyEmail = useCopyEmail()
 
   return (
-    <Section id="contact" labelledBy="contact-title" flushTop>
+    <Section id="contact" labelledBy="contact-title" band>
       <div className="mx-auto max-w-[640px] text-center">
         <p className="eyebrow">{contact.eyebrow}</p>
         <h2

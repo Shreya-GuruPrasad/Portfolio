@@ -154,6 +154,25 @@
   }
 }
 
+/*
+ * About photo as a background, so it is not offered for saving. ProfilePhoto sets the
+ * image-set variables once the section is near; until then only the placeholder shows.
+ */
+@layer components {
+  .portrait {
+    background-image: var(--portrait-tall, none);
+    background-size: cover;
+    background-position: center 25%;
+    user-select: none;
+    -webkit-user-select: none;
+    -webkit-touch-callout: none;
+
+    @media (width < 51.25rem) {
+      background-image: var(--portrait-square, none);
+    }
+  }
+}
+
 /* Gentle staggered entrance for the hero. Elements keep their final state without animation. */
 @layer components {
   .fade-up > * {

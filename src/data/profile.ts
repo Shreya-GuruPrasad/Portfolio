@@ -8,7 +8,7 @@ export const profile: Profile = {
   linkedin: 'https://www.linkedin.com/in/shreya-g-prasad',
   github: 'TODO: GitHub profile URL (probably https://github.com/Shreya-GuruPrasad, confirm)',
   availability: 'Now seeking cyber security internships and junior roles in Melbourne',
-  photoAlt: 'Portrait of Shreya Guru Prasad',
+  photoAlt: 'Shreya Guru Prasad',
   hero: {
     greeting: "Hi, I'm Shreya.",
     headline: {

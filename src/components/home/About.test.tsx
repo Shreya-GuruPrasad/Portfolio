@@ -18,11 +18,11 @@ describe('About', () => {
     expect(screen.getByRole('region').querySelector('strong, b')).toBeNull()
   })
 
-  it('shows the photo with explicit size, lazily loaded', () => {
+  it('shows the photo as a labelled background, not an image element', () => {
     render(<About />)
-    const photo = screen.getByRole('img', { name: 'Portrait of Shreya Guru Prasad' })
-    expect(photo).toHaveAttribute('width', '300')
-    expect(photo).toHaveAttribute('height', '375')
-    expect(photo).toHaveAttribute('loading', 'lazy')
+    const photo = screen.getByRole('img', { name: 'Shreya Guru Prasad' })
+    expect(photo.tagName).toBe('DIV')
+    expect(photo).toHaveAttribute('draggable', 'false')
+    expect(screen.getByRole('region').querySelector('img, picture')).toBeNull()
   })
 })

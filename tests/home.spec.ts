@@ -55,13 +55,13 @@ test.describe('home page', () => {
     )
   })
 
-  test('lazy-loads the About photo', async ({ page }) => {
+  test('loads the About photo only near the viewport, as a background', async ({ page }) => {
     await page.goto('./')
-    const photo = page.getByRole('img', { name: 'Portrait of Shreya Guru Prasad' })
-    await expect(photo).toHaveAttribute('loading', 'lazy')
+    const photo = page.getByRole('img', { name: 'Shreya Guru Prasad' })
+    await expect(photo).toHaveCSS('background-image', 'none')
+    await expect(page.locator('#about img')).toHaveCount(0)
     await photo.scrollIntoViewIfNeeded()
-    await expect(photo).toHaveJSProperty('complete', true)
-    await expect(photo).not.toHaveJSProperty('naturalWidth', 0)
+    await expect(photo).toHaveCSS('background-image', /profile-.*\.(avif|webp)/)
   })
 })
 
